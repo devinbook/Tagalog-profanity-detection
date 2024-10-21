@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+
+<body style="background-color: #e5e5e5;">
+  <nav class="p-5 bg-white shadow md:flex md:items-center md:justify-between style=background-color: #d6d3d1;">
+    <div class="flex justify-between items-center ">
+    <div class="text-lg font-semibold">Profanity Detector</div>
+
+      <span class="text-3xl cursor-pointer mx-2 md:hidden block">
+        <ion-icon name="menu" onclick="Menu(this)"></ion-icon>
+      </span>
+    </div>
+
+    <ul class="md:flex md:items-center z-[-1] md:z-auto md:static absolute bg-white w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 md:opacity-100 opacity-0 top-[-400px] transition-all ease-in duration-500">
+      <li class="mx-4 my-6 md:my-0">
+        <a href="#" class="text-xl hover:text-cyan-500 duration-500">Home</a>
+      </li>
+      <li class="mx-4 my-6 md:my-0">
+        <a href="#" class="text-xl hover:text-cyan-500 duration-500">Output</a>
+      </li>
+      <li class="mx-4 my-6 md:my-0">
+        <a href="#" class="text-xl hover:text-cyan-500 duration-500">About</a>
+      </li>
+      <li class="mx-4 my-6 md:my-0">
+        <a href="#" class="text-xl hover:text-cyan-500 duration-500">Contact</a>
+      </li>
+
+<h2 class=""></h2>
+    </ul>
+  </nav>
+  <main class="text-center mt-24 mx-auto" style="max-width: 600px;">
+    <h1 class="text-3xl font-bold text-gray-800">Filipino Profanity Detector</h1>
+    <p class="mt-4 text-gray-600 mx-auto w-3/4 text-center" 
+       style="text-indent: 2em; line-height: 1.5em;">
+        Our platform uses advanced NLP models to detect and filter profane language in Filipino text, ensuring a safe and clean online environment. Ideal for developers, businesses, and content moderators looking to maintain respectful discourse.
+    </p>    
+    <div class="mt-8 flex justify-center">
+        <div class="relative w-full max-w-lg">
+            <input type="text" class="w-full border border-gray-300 rounded-full py-2 px-4 pl-10 focus:outline-none focus:ring-2 focus:ring-gray-300" placeholder="Enter Facebook URL...">
+            <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+        </div>
+    </div>
+    <button class="mt-4 px-6 py-2 bg-white border border-gray-300 rounded-full text-gray-700 hover:bg-gray-100">SEARCH</button>
+</main>
+
+<!-- Output Section -->
+<div id="output" class="mt-16 text-gray-800 text-center" style="display:none;">
+    <h2 class="text-2xl font-bold">Output</h2>
+    <p id="result"></p>
+</div>
+</main>
+
+<script>
+document.getElementById('search-button').addEventListener('click', function() {
+    // Get the value from the input field
+    var url = document.getElementById('facebook-url').value;
+    
+    // Example output display (you can customize this)
+    var outputSection = document.getElementById('output');
+    var resultText = document.getElementById('result');
+
+    if (url) {
+        resultText.textContent = 'You searched for: ' + url; // Replace this with actual processing logic
+        outputSection.style.display = 'block'; // Show output section
+        outputSection.scrollIntoView({ behavior: 'smooth' }); // Smooth scroll to the output section
+    } else {
+        alert('Please enter a URL.');
+    }
+});
+</script>
+
+  <script>
+    function Menu(e){
+      let list = document.querySelector('ul');
+      e.name === 'menu' ? (e.name = "close",list.classList.add('top-[80px]') , list.classList.add('opacity-100')) :( e.name = "menu" ,list.classList.remove('top-[80px]'),list.classList.remove('opacity-100'))
+    }
+  </script>
+</body>
+</html>
